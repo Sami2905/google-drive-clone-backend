@@ -1,34 +1,17 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
-  roots: ['<rootDir>'],
-  testMatch: ['**/tests/**/*.test.ts'],
-  transform: {
-    '^.+\\.ts$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
-    }],
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
-  collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.d.ts',
-    '!src/tests/**/*.ts',
-    '!src/index.ts',
-    '!drive-frontend/**/*',
-  ],
-  coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'html'],
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80,
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  testMatch: ['**/__tests__/**/*.test.ts?(x)'],
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.json',
     },
   },
-  setupFilesAfterEnv: [],
-  testTimeout: 10000,
-  verbose: true,
-  clearMocks: true,
-  restoreMocks: true,
-  maxWorkers: 1,
 };

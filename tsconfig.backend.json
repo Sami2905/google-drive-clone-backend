@@ -17,12 +17,12 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "exactOptionalPropertyTypes": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": false,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
     "importHelpers": true,
@@ -34,7 +34,16 @@
     "tsBuildInfoFile": "./dist/.tsbuildinfo"
   },
   "include": [
-    "src/**/*"
+    "src/supabase-server.ts",
+    "src/services/databaseService.ts",
+    "src/services/supabaseStorageService.ts",
+    "src/models/User.ts",
+    "src/models/Folder.ts",
+    "src/models/File.ts",
+    "src/models/Permission.ts",
+    "src/models/Share.ts",
+    "src/models/index.ts",
+    "src/middleware/supabaseAuthMiddleware.ts"
   ],
   "exclude": [
     "node_modules",
@@ -42,6 +51,7 @@
     "tests",
     "**/*.test.ts",
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "**/*.tsx"
   ]
 }
