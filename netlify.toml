@@ -1,9 +1,10 @@
 [build]
+  base = "drive-frontend"
   command = "npm run build"
   publish = ".next"
 
 [build.environment]
-  NEXT_PUBLIC_API_URL = "https://api.yourdomain.com"
+  NEXT_PUBLIC_API_URL = "https://google-drive-clone-backend-gpqh.onrender.com/api"
   NEXT_PUBLIC_APP_NAME = "Google Drive Clone"
   NODE_VERSION = "18"
 
